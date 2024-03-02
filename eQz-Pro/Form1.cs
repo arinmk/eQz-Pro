@@ -162,12 +162,12 @@ namespace eQz_Pro
                 ((SeriesPoint)chartControl1.Series[0].Points[i]).Argument = i.ToString();
                 ((SeriesPoint)chartControl1.Series[0].Points[i]).Values = new double[] { SuperValue };
                 chartControl1.Series[0].Points.EndUpdate();
-                SuperValues.Add(SuperValue);//                                                        /\
-            }                                                                                    //\\  Gauge Order 
-            arcScaleComponent1.Value = (SuperValues.Average() * 2.2f);                            //||\\  Master
-            arcScaleComponent2.Value = ((SuperValues.Take(8).Sum() / 8f) / 2f);                  //||||\\  Bass
-            arcScaleComponent3.Value = ((SuperValues.Skip(8).Average()));                       //\\||/\\\  Treble
-            arcScaleComponent4.Value = Math.Max((SuperValues.Average() * 2.5f) - 100, 0);      //||\\//||\\  Overdrive
+                SuperValues.Add(SuperValue);                                               
+            }                                                                             // Gauge Order 
+            arcScaleComponent1.Value = (SuperValues.Average() * 2.2f);                    // Master
+            arcScaleComponent2.Value = ((SuperValues.Take(8).Sum() / 8f) / 2f);           // Bass
+            arcScaleComponent3.Value = ((SuperValues.Skip(8).Average()));                 // Treble
+            arcScaleComponent4.Value = Math.Max((SuperValues.Average() * 2.5f) - 100, 0); // Overdrive
             if (arcScaleComponent4.Value > 60)
             {
                 labelComponent5.Text = "WARNING";
